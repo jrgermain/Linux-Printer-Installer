@@ -16,6 +16,10 @@ Yes. Tuition is expensive enough as it is. This script is also free as in freedo
 
 ### How do I use it?
 
-Run the shell script normally; in a terminal, type ` /dir/qu-printing.sh ` where ` dir ` is the directory the script is in.
+Mark the file as executable and run it normally; in a terminal, type:
 
-For example, if the file is in your Downloads folder, run `~/Downloads/qu-printing.sh` and follow all on-screen prompts.
+`cd /directory/script/is/in`
+
+`chmod +x qu-printing.sh`
+
+`./qu-printing.sh`
