@@ -1,7 +1,6 @@
 # qu-printing
 
-This shell script installs Quinnipiac's new printers on a Linux or macOS machine.
-
+This shell script installs Quinnipiac's new printers on a Linux or macOS machine. You can fork this if you want to make an installer for any printer that uses PPD drivers.
 
 ### Why?
 
@@ -17,10 +16,6 @@ Yes. Tuition is expensive enough as it is. This script is also free as in freedo
 
 ### How do I use it?
 
-Run the shell script normally. In a terminal, type ` /dir/qu-printing.sh ` where ` dir ` is the directory the script is in.
+Run the shell script normally; in a terminal, type ` /dir/qu-printing.sh ` where ` dir ` is the directory the script is in.
 
-For example, if the file is in your Downloads folder, run
-
-`~/Downloads/qu-printing.sh`
-
-And follow all on-screen prompts.
+For example, if the file is in your Downloads folder, run `~/Downloads/qu-printing.sh` and follow all on-screen prompts.
