@@ -13,7 +13,7 @@ I made a shell script that uses the `lpadmin` command to install the printers. T
 
 ### Is it free?
 
-Yes. Tuition is expensive enough as it is. Plus it's open-source!
+Yes. Tuition is expensive enough as it is. This script is also free as in freedom; do whatever you want with it!
 
 ### How do I use it?
 
