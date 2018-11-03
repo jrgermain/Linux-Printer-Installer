@@ -11,10 +11,10 @@
 
 #prompt for username
 echo "Please enter your Quinnipiac network username: "
-read uname
+read username
 
 #strip @qu.edu or @quinnipiac.edu from username by ignoring anything after '@'
-uname=${uname%@*}
+username=${username%@*}
 
 #download printer drivers
 curl -s http://is.quinnipiac.edu/installs/MacCampusPrinting.zip --output /tmp/MacCampusPrinting.zip
@@ -25,10 +25,10 @@ unzip -qq -o /tmp/MacCampusPrinting.zip -d /tmp
 unzip -qq -o /tmp/MacCampusPrintingColor.zip -d /tmp
 
 #install printers
-lpadmin -p "CampusPrinting" -v "lpd://${uname}@mfdServer/maccampusprinting" -P "/tmp/MacCampusPrinting.ppd" -o printer-is-shared=false
+lpadmin -p "CampusPrinting" -v "lpd://${username}@mfdServer/maccampusprinting" -P "/tmp/MacCampusPrinting.ppd" -o printer-is-shared=false
 cupsenable "CampusPrinting" -E; cupsaccept "CampusPrinting"
 
-lpadmin -p "CampusPrintingColor" -v "lpd://${uname}@mfdServer/maccampusprintingcolor" -P "/tmp/MacCampusPrintingColor.ppd" -o printer-is-shared=false
+lpadmin -p "CampusPrintingColor" -v "lpd://${username}@mfdServer/maccampusprintingcolor" -P "/tmp/MacCampusPrintingColor.ppd" -o printer-is-shared=false
 cupsenable "CampusPrintingColor" -E; cupsaccept "CampusPrintingColor"
 
 #delete temporary files
