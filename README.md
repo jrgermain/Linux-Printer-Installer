@@ -16,10 +16,8 @@ Yes. Tuition is expensive enough as it is. This script is also free as in freedo
 
 ### How do I use it?
 
-Mark the file as executable and run it normally; in a terminal, type:
+Run the file as you normally would run a shell script. Navigate to the directory containing the file and then:
 
-`cd /directory/script/is/in`
+`chmod +x qu-printing.sh` to mark the file as executable
 
-`chmod +x qu-printing.sh`
-
-`./qu-printing.sh`
+`./qu-printing.sh` to run the script -- if this fails, try running the script as root: `sudo ./qu-printing.sh`
