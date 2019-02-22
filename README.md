@@ -8,4 +8,4 @@ Run the file as you normally would run a shell script. Navigate to the directory
 
 `chmod +x install-printers.sh` to mark the file as executable
 
-`./install-printers` to run the script -- if this fails, try running the script as root: `sudo ./install-printers`
+`./install-printers.sh` to run the script -- if this fails, try running the script as root: `sudo ./install-printers.sh`
