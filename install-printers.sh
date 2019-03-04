@@ -2,7 +2,7 @@
 
 # Linux printer installer
 # Written by Joey Germain
-# 2/22/l9
+# 2/22/19
 #
 # TODO: verify that printers actually install, check if root privileges are needed
 
