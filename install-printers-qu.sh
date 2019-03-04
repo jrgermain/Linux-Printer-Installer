@@ -4,31 +4,38 @@
 # An example of my genreic printer script tweaked for a specific organization
 #
 # Written by Joey Germain
-# 10/31/2018
+# 3/4/19
+
+# Variables
+DRIVER_BW_URL=http://is.quinnipiac.edu/installs/MacCampusPrinting.zip
+DRIVER_COLOR_URL=http://is.quinnipiac.edu/installs/MacCampusPrintingColor.zip
+SERVER=mfdserver
+PRINTER_BW=maccampusprinting
+PRINTER_COLOR=maccampusprintingcolor
+FRIENDLY_NAME_BW=CampusPrinting
+FRIENDLY_NAME_COLOR=CampusPrintingColor
 
 #prompt for username
 echo "Please enter your Quinnipiac network username: "
 read username
 
-#strip @qu.edu or @quinnipiac.edu from username by ignoring anything after '@'
+#strip @qu.edu or @quinnipiac.edu from username (if present) by ignoring anything after '@'
 username=${username%@*}
 
-#download printer drivers
-curl -s http://is.quinnipiac.edu/installs/MacCampusPrinting.zip --output /tmp/MacCampusPrinting.zip
-curl -s http://is.quinnipiac.edu/installs/MacCampusPrintingColor.zip --output /tmp/MacCampusPrintingColor.zip
-
-#unzip printer drivers
+#download and unzip printer drivers
+curl -s ${DRIVER_BW_URL} --output /tmp/MacCampusPrinting.zip
+curl -s ${DRIVER_COLOR_URL} --output /tmp/MacCampusPrintingColor.zip
 unzip -qq -o /tmp/MacCampusPrinting.zip -d /tmp
 unzip -qq -o /tmp/MacCampusPrintingColor.zip -d /tmp
 
 #install printers
-lpadmin -p "CampusPrinting" -v "lpd://${username}@mfdServer/maccampusprinting" -P "/tmp/MacCampusPrinting.ppd" -o printer-is-shared=false
-cupsenable "CampusPrinting" -E
-cupsaccept "CampusPrinting"
+lpadmin -p "${FRIENDLY_NAME_BW}" -v "lpd://${username}@${SERVER}/${PRINTER_BW}" -P "/tmp/MacCampusPrinting.ppd" -o printer-is-shared=false
+cupsenable "${FRIENDLY_NAME_BW}" -E
+cupsaccept "${FRIENDLY_NAME_BW}"
 
-lpadmin -p "CampusPrintingColor" -v "lpd://${username}@mfdServer/maccampusprintingcolor" -P "/tmp/MacCampusPrintingColor.ppd" -o printer-is-shared=false
-cupsenable "CampusPrintingColor" -E
-cupsaccept "CampusPrintingColor"
+lpadmin -p "${FRIENDLY_NAME_COLOR}" -v "lpd://${username}@${SERVER}/${PRINTER_COLOR}" -P "/tmp/MacCampusPrintingColor.ppd" -o printer-is-shared=false
+cupsenable "${FRIENDLY_NAME_COLOR}" -E
+cupsaccept "${FRIENDLY_NAME_COLOR}"
 
 #delete temporary files
 rm /tmp/MacCampusPrinting*
