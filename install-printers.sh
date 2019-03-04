@@ -23,6 +23,3 @@ cupsaccept "${FRIENDLY_NAME}"
 
 #delete temporary files
 rm /tmp/linuxprinting.ppd
-
-#print success message regardless of whether printers actually install (for now)
-echo "Printer installation complete."
