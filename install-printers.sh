@@ -2,7 +2,7 @@
 
 # Linux printer installer
 # Written by Joey Germain
-# 2/22/19
+# 3/13/19
 #
 # TODO: verify that printers actually install, check if root privileges are needed
 
@@ -13,13 +13,13 @@ SERVER=server
 PRINTER=printer
 FRIENDLY_NAME=ColorPrinting
 
-#download printer drivers
-curl -s $PPD_DRIVER_URL --output /tmp/linuxprinting.ppd
+# Download printer drivers
+curl --silent $PPD_DRIVER_URL --output /tmp/linuxprinting.ppd
 
-#install printers
+# Install printers
 lpadmin -p "${FRIENDLY_NAME}" -v "lpd://${USERNAME}@${SERVER}/${PRINTER}" -P "/tmp/linuxprinting.ppd" -o printer-is-shared=false
 cupsenable "${FRIENDLY_NAME}" -E
 cupsaccept "${FRIENDLY_NAME}"
 
-#delete temporary files
+# Delete temporary files
 rm /tmp/linuxprinting.ppd
