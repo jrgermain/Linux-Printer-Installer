@@ -40,5 +40,14 @@ cupsaccept "${FRIENDLY_NAME_COLOR}"
 #delete temporary files
 rm /tmp/MacCampusPrinting*
 
-#print success message regardless of whether printers actually install (for now)
-echo "Printer installation complete."
+#print success message if printers installed successfully
+bw_installed=$(lpstat -p | grep "${FRIENDLY_NAME_BW} ")
+color_installed=$(lpstat -p | grep "${FRIENDLY_NAME_COLOR} ")
+
+if [ ! -z "${bw_installed}" ]; then
+	echo "${FRIENDLY_NAME_BW} installed successfully"
+fi
+if [ ! -z "${color_installed}" ]; then
+	echo "${FRIENDLY_NAME_COLOR} installed successfully"
+fi
+
