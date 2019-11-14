@@ -4,7 +4,7 @@
 # An example of my genreic printer script tweaked for a specific organization
 #
 # Written by Joey Germain
-# 3/4/19
+# 11/14/19
 
 # Variables
 DRIVER_BW_URL=http://is.quinnipiac.edu/installs/MacCampusPrinting.zip

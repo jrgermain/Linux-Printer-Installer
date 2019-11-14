@@ -2,9 +2,7 @@
 
 # Linux printer installer
 # Written by Joey Germain
-# 3/13/19
-#
-# TODO: verify that printers actually install, check if root privileges are needed
+# 11/14/19
 
 # Variables
 PPD_DRIVER_URL=http://10.10.10.10/installs/driver.ppd
