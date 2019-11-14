@@ -23,3 +23,9 @@ cupsaccept "${FRIENDLY_NAME}"
 
 # Delete temporary files
 rm /tmp/linuxprinting.ppd
+
+# Echo if printer installation succeeded
+printer_installed=$(lpstat -p | grep "${FRIENDLY_NAME_BW} ")
+if [ ! -z "${printer_installed}" ]; then
+	echo "${FRIENDLY_NAME} installed successfully"
+fi
